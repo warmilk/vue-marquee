@@ -1,5 +1,11 @@
 # marquee
 
+
+components 目录下面的 marquee.vue 就是核心代码了，核心代码其实也就几行而已。
+
+
+
+
 ## Project setup
 ```
 npm install
@@ -14,16 +20,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
