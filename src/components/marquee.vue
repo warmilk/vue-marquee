@@ -1,15 +1,14 @@
 <template>
     <section ref="myMarquee" class="join">
         <div class="join-content" ref="marqueeWrapper">
+            <!-- ul和li的节点层级一定不能改变，ul下面的子节点必须是li，不然取不到offsetLeft的值 -->
             <ul class="join-content-wrap" ref="ul">
                 <li class="join-content-item" v-for="(item, index) in [...joinList, ...joinList]" :key="index">
                     <div class="join-content-item-img">
                         <img :src="item.avatar" alt="">
                     </div>
                     <div class="join-content-item-txt">
-                        <span class="name">恭喜 {{item.nickname}} 成功翻倍</span>
-                        <span class="name" v-show="item.couponType == 1">直减{{item.faceValue}}元红包</span>
-                        <span class="name" v-show="item.couponType == 2">满{{item.fullValue}}减{{item.faceValue}}元 红包</span>
+                        <span class="name">恭喜 {{item.nickname}}</span>
                     </div>
                 </li>
             </ul>
@@ -49,12 +48,7 @@
                 that.ulElement.style.left = (that.ulElement.offsetLeft + speed) + 'px';
             }
         },
-        // updated() {
-        //     let that = this;
-        //     setInterval(function() {
-        //         that.move(-2)
-        //     }, 30)
-        // },
+
         mounted() {
             let that = this;
             this.timerId = setInterval(function() {
@@ -67,7 +61,7 @@
         },
         created() {},
         components: {},
-        props: ['joinList', 'listLength']
+        props: ['joinList']
     }
 </script>
 
@@ -77,7 +71,7 @@
         transform: translateX(-50%);
         left: 50%;
     } // 最新揭晓
-    $avtar-size: 28px;
+    $avtar-size: 30px;
     $margin-top-bottom: 10px;
     $item-height: $avtar-size+2 * $margin-top-bottom;
     @keyframes movin {
